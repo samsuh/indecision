@@ -1,7 +1,7 @@
 const path = require('path')
 
-module.exports = (env) => {
-  const isProduction = env === 'production'
+module.exports = (env, argv) => {
+  const isProduction = argv.mode === 'production'
 
   return {
     entry: './src/app.js',
