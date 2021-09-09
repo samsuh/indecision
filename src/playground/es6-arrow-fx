@@ -1,0 +1,71 @@
+"use strict";
+
+console.log("App.js is running!");
+
+//JSX - Javascript XML 
+var appObject = {
+  title: "Indecision App",
+  subtitle: "Randomly selected decisions",
+  options: ['One', 'Two']
+};
+var template = React.createElement(
+  "div",
+  null,
+  React.createElement(
+    "h1",
+    null,
+    appObject.title
+  ),
+  appObject.subtitle && React.createElement(
+    "p",
+    null,
+    appObject.subtitle
+  ),
+  React.createElement(
+    "p",
+    null,
+    appObject.options.length > 0 ? "Here are your options" : "No options"
+  )
+);
+
+var user = {
+  name: 'Sam',
+  age: 26,
+  location: "Philadelphia"
+  // var userName = 'Andrew'
+  // var userAge = 27
+  // var userLocation = 'Philadelphia'
+
+};function getLocation(location) {
+  if (location) {
+    return React.createElement(
+      "p",
+      null,
+      "Location: ",
+      location
+    );
+  }
+}
+
+var template2 = React.createElement(
+  "div",
+  null,
+  React.createElement(
+    "h1",
+    null,
+    user.name ? user.name : "Anonymous",
+    " "
+  ),
+  user.age && user.age >= 18 && React.createElement(
+    "p",
+    null,
+    "Age: ",
+    user.age
+  ),
+  getLocation(user.location)
+);
+
+var appRoot = document.getElementById('app');
+
+ReactDOM.render(template, appRoot);
+// ReactDOM.render(template2, appRoot)
